@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search News</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 20px 0;
+            background-color: #fff;
+            /* Replace with your company's theme color if needed */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* Optional: adds a subtle shadow for a "raised" effect */
+        }
+
+        .logo {
+            height: 50px;
+            /* You can set this to the height you desire */
+            width: auto;
+            /* This will maintain the aspect ratio of your logo */
+        }
+
+        .site-title {
+            font-size: 2rem;
+            /* Adjust size as needed */
+            color: #333;
+            /* Adjust color as needed */
+            margin: 10px 0;
+            /* Adjust margin as needed */
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input,
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            background-color: #5c67f2;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4a54e1;
+        }
+
+        /* Center the animations container on the screen */
+        #loadingAnimations {
+            position: fixed;
+            left: 50%;
+            bottom: 20px;
+            /* Raise it up 20px from the bottom of the screen */
+            transform: translateX(-50%);
+            width: 300px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 10px;
+            z-index: 1000;
+            /* Ensure it's above other content */
+        }
+
+
+        /* Style for individual animation items */
+        .loading-animation {
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            display: none;
+            /* Hide initially */
+            font-size: 0.9rem;
+        }
+
+        .loading-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            /* Start with 0 width */
+            height: 5px;
+            background-color: #5c67f2;
+            animation: loadAnimation 4s linear forwards;
+            /* Play once and stop */
+        }
+
+        @keyframes loadAnimation {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img class="logo"
+            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvzMkrM3YvdQDo_0NY8m8qi8ERxhXrbdXhXTI1OtHp5yhdll3Th23-g0SLgb4QNASYA-yPnUKJnHyuB_FOXX3rC37F_YRHWZAgPT4yWBEiE3a8UAwrDDJaW0ospIOqtFZDV-eVEwOYIjlZ_LZFk7qfos852i-umDrBG_NnxucAmoBnlUl3bVUnjbGJ0lM/s133/logo.png"
+            alt="Company Logo"> <!-- Update this path -->
+        <h1 class="site-title">Trip Pulse</h1>
+    </div>
+
+    <div>
+        <form action="/search" method="post">
+
+            <input type="text" name="from" id="from" placeholder="Enter Source" required>
+            <input type="text" name="query" id="query" placeholder="Enter destination" required>
+            <input type="text" name="hbudget" id="hbudget" placeholder="Hotel Budget per night (₹)" required>
+            <input type="text" name="fbudget" id="fbudget" placeholder="Flight Budget (One-way)" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+
+    <!-- Loading animations will be dynamically injected here by JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelector('form').addEventListener('submit', function () {
+                // Create and display the loading animations container
+                const animations = document.createElement('div');
+                animations.id = 'loadingAnimations';
+                animations.innerHTML = `
+                    <div class="loading-animation">Fetching News for the destination.....<div class="loading-bar"></div></div>
+                    <div class="loading-animation">Doing Sentiment Analysis on the news scrapped.<div class="loading-bar"></div></div>
+                    <div class="loading-animation">Fetching Hotel information....<div class="loading-bar"></div></div>
+                    <div class="loading-animation">Fetching Weather information...<div class="loading-bar"></div></div>
+                    <div class="loading-animation">Fetching Travel information....<div class="loading-bar"></div></div>
+                    <div class="loading-animation">Loading....Please Wait<div class="loading-bar"></div></div>
+                    <div class="loading-animation">Calculating Recommendation score...<div class="loading-bar"></div></div>
+                `;
+                document.body.appendChild(animations);
+                animations.style.display = 'block'; // Show animations container
+
+                // Sequentially display animations
+                let delay = 0;
+                const animationElements = animations.querySelectorAll('.loading-animation');
+                animationElements.forEach((anim, index) => {
+                    setTimeout(() => {
+                        anim.style.display = 'block'; // Display the animation
+                    }, delay);
+                    delay += 6000; // Wait for the previous animation to finish
+                });
+
+                // Remove the container after all animations have been displayed
+                setTimeout(() => {
+                    animations.remove();
+                }, delay);
+            });
+        });
+    </script>
+</body>
+
+</html>

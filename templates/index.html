@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="project-container">
+        <header class="logo">
+            <img src="Asset 1.png" alt="" class="trippulse-logo">
+            <h1 class="trippulse-text">TripPulse</h1>       
+        </header>
+    
+        <div>
+            <div class="search-bar">
+                <form action="/search" method="post">
+                    <input type="search" name="query" id="destination" placeholder="Enter your search query">
+                    <button type="submit" class="search-btn">Search</button>
+                </form>
+            </div>
+
+            <div class="recommend-score">
+                <div class="recommend-bar" id="recommend-bar">
+                    <h2 class="recommend-text">78% Recommend</h2>
+                </div>
+            </div>
+
+            <div class="News">
+                <h1>NEWS</h1>
+                <div class="news-list">
+                    <div class="single-news">
+                        <div class="news-green"></div>
+                        <img class="single-news-img" src="https://images.lifestyleasia.com/wp-content/uploads/sites/7/2020/01/17185718/JLF-1820x910-1-1600x800.jpg" alt="">
+                        <div class="news-title">2024 Jaipur Literature Festival gets off to a colourful start with call to promo te ‘literary tourism’</div>
+                    </div>
+                    <div class="single-news">
+                        <div class="news-green"></div>
+                        <img class="single-news-img" src="https://images.lifestyleasia.com/wp-content/uploads/sites/7/2020/01/17185718/JLF-1820x910-1-1600x800.jpg" alt="">
+                        <div class="news-title">2024 Jaipur Literature Festival gets off to a colourful start with call to promo te ‘literary tourism’</div>
+                    </div>
+                    <div class="single-news">
+                        <div class="news-green"></div>
+                        <img class="single-news-img" src="https://images.lifestyleasia.com/wp-content/uploads/sites/7/2020/01/17185718/JLF-1820x910-1-1600x800.jpg" alt="">
+                        <div class="news-title">2024 Jaipur Literature Festival gets off to a colourful start with call to promo te ‘literary tourism’</div>
+                    </div>
+                    <div class="single-news">
+                        <div class="news-red"></div>
+                        <img class="single-news-img" src="https://images.lifestyleasia.com/wp-content/uploads/sites/7/2020/01/17185718/JLF-1820x910-1-1600x800.jpg" alt="">
+                        <div class="news-title">2024 Jaipur Literature Festival gets off to a colourful start with call to promo te ‘literary tourism’</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function expandDiv() {
+            var div = document.getElementById("recommend-bar");
+            div.style.width = "80%"; // Change the width to 80%
+    
+            // Prevent the width from being changed back
+            setTimeout(function() {
+                div.style.width = "80%";
+            }, 10000); // Adjust the delay as needed
+        }
+    </script>
+</body>
+</html>

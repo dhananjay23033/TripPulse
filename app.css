@@ -1,0 +1,208 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* CSS after CSS Reset in the code abvoe */
+
+body{
+    background-color: #F68D59;
+    display: flex;
+    justify-content: center;
+    font-family: Roboto;
+
+}
+
+.logo{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.trippulse-logo{
+    width: 80px;
+    height: 80px;
+    margin-top: 20px;
+}
+
+.trippulse-text{
+    margin-left: 10px;
+    /* margin-bottom: ; */
+}
+.project-container{
+    margin: 10% 20%;
+    background-color: white;
+    width: 80%;
+    height: 1000px;
+    border-radius: 20px;
+    
+}
+
+h1{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 900;
+    margin: 50px
+}
+
+.search-bar{
+    height: 80px;
+    display: flex;
+    /* background-color: gray; */
+    justify-content: center;
+    border: 1px solid rgb(252, 252, 252);
+    border-radius: 20px;
+    margin: 0px 20px;
+    
+
+}
+
+#destination{
+    height: 80%;
+    width: 400px;
+    border: 1px solid gray;
+    border-radius:20px ;
+    text-align: center;
+    flex: 2;
+    border: 1px solid rgb(238, 238, 238);
+}
+
+#date{
+    color: gray;
+    height: 80%;
+    border: 1px solid gray;
+    border-radius:20px ;
+    text-align: center;
+    flex:1;
+    border: 1px solid rgb(238, 238, 238);
+}
+
+.search-btn{
+    height: 90%;
+    width: 200px;
+    border: 1px solid gray;
+    border-radius:20px ;
+    text-align: center;
+    flex:1;
+    border:none;
+    flex-direction: row;
+    background-color: #F68D59;
+    color: white;
+    font-size: 30px;
+    font-weight: bolder;
+    transition: transform 200ms, background-color 200ms;
+}
+
+.search-btn:hover{
+    transform: scale(1.05);
+    background-color: #F4804D;
+}
+
+
+.recommend-score{
+    height: 40px;
+    display: flex;
+    background-color: #D3D3D3;
+    justify-content: start;
+    border: 1px solid white;
+    border-radius: 20px;
+    margin: 20px 50px;
+    flex-direction: row;
+
+    
+
+
+}
+
+.recommend-bar{
+    height: 100%;
+    background-color: #88C65F;
+    text-align: start;
+    border-radius: 20px;
+    width: 60%;
+
+}
+
+.recommend-text{
+    color: white;
+    text-align: center;
+
+    
+}
+
+.single-news{
+    margin: 20px 40px;
+    width: 40%;
+    background-color: rgb(255, 255, 255);
+    display:flex;
+}
+
+
+.news-green{
+    background-color: #88C65F;
+    width: 10%;
+    height: 100px;
+}
+
+img{
+    margin-left: 10px;
+    height: 100px;
+    width: 30%;
+}
+
+.news-title{
+    margin-left: 10px;
+    font-weight: 700;
+}
+
+.news-red{
+    background-color: #e93446;
+    width: 10%;
+    height: 100px;
+}
