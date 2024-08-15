@@ -1,3 +1,4 @@
+
 import subprocess
 import sys
 import csv
@@ -52,9 +53,10 @@ def search():
     source = request.form['from']
     hbudget = float(request.form['hbudget'])
     fbudget = float(request.form['fbudget'])
-    print(hbudget)
-    print(fbudget)  
-    news_query= query+" AND [travel+OR+flights+OR+tourist+OR+festival+OR+events+OR+exhibition+OR+carnival+OR+fair]"
+    # print(hbudget)
+    # print(fbudget)  
+    news_query= query+"+%28travel+OR+flights+OR+tourist+OR+festival+OR+events+OR+fair+OR+riot+OR+protest%29"
+    # news_query= query
     country_code = 'us'  # Default to US, modify as needed
     get_news(news_query, country_code=country_code)
     analyzed_articles = analyze_titles("news_list.csv")
@@ -63,7 +65,7 @@ def search():
     city_to=query
     city_from=source
     airport_dict=get_airport_codes(city_from, city_to)
-    print(airport_dict)
+    # print(airport_dict)
     flight_data = fetch_flight_data(airport_dict['to'], airport_dict['from'])
     save_flights_to_csv(flight_data)
     event_data = fetch_event_data(query)
